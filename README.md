@@ -18,7 +18,7 @@ Database will be setup when the project is run for the first time
 
 ```bash
 npm install # For global project
-cd client && npm install && cd ..# For client
+cd client && npm install && cd .. # For client
 ```
 
 ## Run tests
