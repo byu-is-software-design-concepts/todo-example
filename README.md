@@ -45,3 +45,32 @@ TeamCity
 GitHub Pages
 Heroku
 ```
+
+## Build steps
+
+###### 1
+
+```bash
+# Overwrite environment variables
+cp .env.production .env
+
+# Install
+npm install
+cd client && npm install
+
+# GitHub Login
+git remote set-url origin https://%gitHubUser%:%gitHubPassword%@github.com/patrik-drean/todo-example
+
+# Heroku Login
+curl https://cli-assets.heroku.com/install.sh | sh # Install Heroku CLI
+
+echo "
+machine api.heroku.com
+  login %herokuUser%
+  password %herokuToken%
+machine git.heroku.com
+  login %herokuUser%
+  password %herokuToken%" > ~/.netrc
+
+heroku git:remote -a %herokuAppName%
+```
